@@ -9,15 +9,22 @@
     */
 
     // Entrada de Dados
-
+var valorInicial = 100.00; // Valor inicial
+    var taxaJuros = 0.12; // Taxa de juros composta por mês
+    var meses = 6; // Quantidade de meses
 
 
     // Processamento
+var valorFinal = valorInicial; // Inicializa o valor final como o valor inicial
+
+    for (var i = 1; i <= meses; i++) {
+        valorFinal = valorFinal * (1 + taxaJuros); // Calcula o valor final com base no juro composto
+    }
 
 
 
     // Saída de Dados
-    
+console.log("O valor final após", meses, "meses com juros compostos de 12% ao mês é R$" + valorFinal.toFixed(2));    
 
 
 </script>
