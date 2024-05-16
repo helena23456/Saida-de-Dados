@@ -9,15 +9,34 @@
     */
 
     // Entrada de Dados
-
+var ip = "192.168.0.101";
 
 
     // Processamento
+var campos = ip.split("."); // Divide o endereço IP em seus campos separados
 
+    var fatoriais = []; // Array para armazenar os fatoriais de cada campo
+   // Calcula os fatoriais para cada campo
+    for (var i = 0; i < campos.length; i++) {
+        var campo = parseInt(campos[i]); // Converte o campo de string para número inteiro
+        var fatorial = []; // Array para armazenar os fatoriais deste campo
+
+    // Calcula os fatoriais
+    for (var j = 0; j <= 7; j++) {
+            if ((campo >> j) & 1) { // Verifica se o bit está definido (1)
+                fatorial.push(2 ** j); // Adiciona o fatorial correspondente ao campo
+            }
+        }
+
+        fatoriais.push(fatorial); // Adiciona os fatoriais deste campo ao array principal
+    }
+ 
 
 
     // Saída de Dados
-    
+ for (var k = 0; k < fatoriais.length; k++) {
+        console.log("Fatoriais para o campo", k + 1, ":", fatoriais[k].join(", "));
+    }   
 
 
 </script>
