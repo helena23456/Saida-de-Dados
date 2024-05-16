@@ -13,15 +13,36 @@
     */
 
     // Entrada de Dados
-
+var precoHeadset = 100.00;
+    var precoDrone = 300.00;
+    var valorLimiteICMS = 250.00;
+    var percentualICMS = 0.17;
+    var percentualTaxaImportacao = 0.60;
 
 
     // Processamento
+var impostoHeadset;
+    var impostoDrone;
+    // Calcula o imposto para o headset
+    if (precoHeadset > valorLimiteICMS) {
+        impostoHeadset = precoHeadset * percentualICMS; // ICMS
+        impostoHeadset += impostoHeadset * percentualTaxaImportacao; // Taxa de importação sobre o ICMS
+    } else {
+        impostoHeadset = 0; // Não ultrapassou o limite do ICMS, então não há imposto
+    }
 
+    // Calcula o imposto para o drone
+    if (precoDrone > valorLimiteICMS) {
+        impostoDrone = precoDrone * percentualICMS; // ICMS
+        impostoDrone += impostoDrone * percentualTaxaImportacao; // Taxa de importação sobre o ICMS
+    } else {
+        impostoDrone = 0; // Não ultrapassou o limite do ICMS, então não há imposto
+    }
 
 
     // Saída de Dados
-    
+  console.log("Imposto sobre o headset: R$" + impostoHeadset.toFixed(2));
+    console.log("Imposto sobre o drone: R$" + impostoDrone.toFixed(2));  
 
 
 </script>
